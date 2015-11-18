@@ -1,1 +1,13 @@
-<h1>Index Restaurant Page</h1>
+<p class = "new">
+<a href="/restaurants/new">Create New Restaurant</a>
+<% @restaurants.each do |a| %>
+<table>
+<tr>
+<th<img src= "<%= a.photo %>"></th>
+<th><%=link_to "#{a.name}" , restaurant_path(a) %></th>
+<th><%= a.address %><th>
+<th><%= a.genre %><th>
+<th><%= a.price %>$</th>
+</tr>
+</table> 
+<%end%>
