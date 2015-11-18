@@ -5,7 +5,7 @@ ActiveRecord::Schema.define(version: 20151118153010) do
     t.integer  "user_id"
     t.integer  "restaurant_id"
     t.integer  "capacity"
-    t.integer  "time"     
+    t.integer  "time"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
