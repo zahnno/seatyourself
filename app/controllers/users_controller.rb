@@ -5,12 +5,13 @@ class UsersController < ApplicationController
 
 	def show
 		@user = current_user
+
 	end
 
 	def create
   	@user = User.new(user_params)
   	  if @user.save
-  		redirect_to restaurants_url, notice: "Signed up!"
+  		redirect_to restaurants_url, notice: "Hello, #{@user.name}!"
   	  else 
   		render "new"
   	  end
