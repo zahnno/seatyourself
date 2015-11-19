@@ -1,4 +1,9 @@
-<h1>Show Restaurant Page</h1>
+<h1><%= @restaurant.name %></h1>
+
+<p><%= @restaurant.photo %></p>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.genre %></p>
+<p>$<%= @restaurant.price %></p>
 
 <% if current_user %>
 <%= link_to "Book a Reservation!", restaurant_reservations_path(@restaurant) %>
