@@ -1,1 +1,7 @@
 <h1>Show Restaurant Page</h1>
+
+<% if current_user %>
+<%= link_to "Book a Reservation!", restaurant_reservations_path(@restaurant) %>
+<% else %>
+  <p>Please<%= link_to " Log in ", new_session_path%>to Book a Reservation!</p>
+  <% end %>
