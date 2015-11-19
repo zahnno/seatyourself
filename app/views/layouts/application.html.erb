@@ -13,10 +13,13 @@
     <% if flash[:alert] %>
       <p id="alert"><%= flash[:alert] %></p>
     <% end %>
+    <% if current_user %>
+    <p>You're logged in as <%= link_to current_user.name, current_user %></p>
+    <% end %>
 
 <%= yield %>
 
-	<p class="userinfo">
+		<p class="userinfo">
       <% if current_user %>
         Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
       <% else %>
