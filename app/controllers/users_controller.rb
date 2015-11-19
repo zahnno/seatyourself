@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 	def create
   	@user = User.new(user_params)
   	  if @user.save
-  		redirect_to restaurants_url, notice: "Hello, #{@user.name}!"
+  		redirect_to user_path(@user), notice: "Hello, #{@user.name}!"
   	  else 
   		render "new"
   	  end
