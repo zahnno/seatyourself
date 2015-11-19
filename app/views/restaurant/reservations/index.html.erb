@@ -1,1 +1,6 @@
-<h1> index reservations</h1>
+<h1> Restaurants</h1>
+<% @restaurants.each do |restaurant| %>
+	<p>
+		<%= restaurant.name %>, <%= restaurant.time %>, <%= restaurant.capacity %>
+	</p>
+<% end %>
