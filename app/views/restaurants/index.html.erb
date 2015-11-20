@@ -1,8 +1,8 @@
-<p class = "new">
+<p>
 <% @restaurants.each do |a| %>
 <table>
 <tr>
-<th<img src= "<%= a.photo %>"></th>
+<th><img src= "<%= a.photo %>" style= "width: 150px; height: 150px;"></th>
 <th><%=link_to "#{a.name}" , restaurant_path(a) %></th>
 <th><%= a.address %><th>
 <th><%= a.genre %><th>
