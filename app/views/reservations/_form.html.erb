@@ -12,7 +12,7 @@
 
 	<div class="field">
 		<%= f.label :time %><br>
-		<%= f.time_field :time %>
+		<%= f.datetime_select :time, discard_year: true, discard_minute: true, start_hour: 12, end_hour: 20, ampm: true, start_month: current_month %>
 	</div>
 
 	<div class="field">

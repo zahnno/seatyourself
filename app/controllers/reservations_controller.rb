@@ -1,23 +1,27 @@
 class ReservationsController < ApplicationController
 	before_filter :ensure_logged_in, only: [:create, :destroy]
+  before_filter :load_restaurant
 
-  def index
-   
+  def index   
   end
 
   def new
-  @reservation = Reservation.new
-  @restaurant = Restaurant.find_by(params[:restaurant_id])
+    @reservation = Reservation.new
   end 
 
   def show
-    @restaurant = Restaurant.find(params[:id])
   	@reservation = Reservation.find(params[:id])
   end
 
   def create
-      @reservation = Reservation.new(reservations_params)
-        
+
+      @reservation = Reservation.new(
+      guests: params[:reservation][:guests],
+      time: params[:reservation][:time],
+      restaurant_id: @restaurant.id,
+      user_id: current_user.id,
+      )     
+
     if @reservation.save
     	redirect_to user_path(current_user), notice: 'Reservation Set!'
     else
@@ -33,6 +37,10 @@ class ReservationsController < ApplicationController
 
   private 
   def reservation_params
-  	params.require(:reservation).permit(:guests, :time, :restaurant_id, :user_id)
+  	params.require(:reservation).permit(:guests, :time, :restaurant_id)
+  end
+
+  def load_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 end
