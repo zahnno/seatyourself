@@ -10,6 +10,7 @@ class Reservation < ActiveRecord::Base
       	self.errors.add(:guests, 'Sorry capacity is full')
       else
       	restaurant.capacity = restaurant.capacity - guests
+      end
 	end
 
 end
