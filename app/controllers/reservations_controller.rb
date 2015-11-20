@@ -15,12 +15,6 @@ class ReservationsController < ApplicationController
 
   def create
       @reservation = Reservation.new(reservation_params)
-      # guests: params[:reservation][:guests],
-      # time: params[:reservation][:time],
-      # restaurant_id: @restaurant.id,
-      # user_id: current_user.id,
-      
-
       @reservation.restaurant = @restaurant
       @reservation.user = current_user
 
@@ -28,7 +22,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
     	redirect_to user_path(current_user), notice: 'Reservation Set!'
     else
-    	render 'restaurants/show'
+    	render 'reservations/new'
     end
   end
 

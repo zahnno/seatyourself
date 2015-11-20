@@ -8,7 +8,8 @@ class Reservation < ActiveRecord::Base
 	def check_availability
       if guests > restaurant.capacity
       	self.errors.add(:guests, 'Sorry capacity is full')
-      end
+      else
+      	restaurant.capacity = restaurant.capacity - guests
 	end
 
 end
