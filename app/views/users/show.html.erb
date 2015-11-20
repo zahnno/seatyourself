@@ -2,7 +2,7 @@
 <h2><%= @user.email %></h2>
 <%= "My Reservations" %><br/>
 <% @reservations.each do |reservation| %>
-<p> <%= reservation.time.strftime('%A, %d %b %Y %I:%M %p') %>
+<p> <%= reservation.time.strftime('%A, %e %b %I %p') %>
 Guests #:<%= reservation.guests%></p><br>
 <% end %>
 
