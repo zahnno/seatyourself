@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
   end 
 
   def show
+    @restaurant = Restaurant.find(params[:id])
   	@reservation = Reservation.find(params[:id])
   end
 
@@ -19,15 +20,15 @@ class ReservationsController < ApplicationController
    #  @review.user = current_user
 
       @reservation = Reservation.new(
-      capacity: params[:reservation][:capacity],
+      guests: params[:reservation][:guests],
       time: params[:reservation][:time],
-      restaurant_id: @restaurant.id,
+      restaurant_id: @restaurant_id,
       user_id: current_user.id
      )    
 
 
     if @reservation.save
-    	redirect_to restaurant_path(@restaurant), notice: 'Reservation Set!'
+    	redirect_to restaurants_path(@restaurant), notice: 'Reservation Set!'
     else
     	render 'restaurants/show'
     end
