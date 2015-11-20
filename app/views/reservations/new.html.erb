@@ -1,3 +1,8 @@
-<h1>new reservation</h1>
+<img src="<%= @restaurant.photo %>" style= "width: 200px; height:200px;">
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.genre %></p>
+<p>$<%= @restaurant.price %></p>
+<h1>New Reservation</h1>
 
 <%= render "form" %>

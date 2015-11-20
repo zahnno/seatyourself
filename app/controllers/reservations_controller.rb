@@ -16,17 +16,17 @@ class ReservationsController < ApplicationController
   end
 
   def create
-  	# @review = @product.reviews.build(review_params)
-   #  @review.user = current_user
-
+    if 50 <= @restaurant_capacity
       @reservation = Reservation.new(
       guests: params[:reservation][:guests],
       time: params[:reservation][:time],
       restaurant_id: @restaurant_id,
       user_id: current_user.id
-     )    
-
-
+     ) 
+    else 
+      render "restaurant/show"
+    end
+        
     if @reservation.save
     	redirect_to user_path(current_user), notice: 'Reservation Set!'
     else
@@ -42,7 +42,7 @@ class ReservationsController < ApplicationController
 
   private 
   def reservation_params
-  	params.require(:reservation).permit(:capacity, :time, :restaurant_id)
+  	params.require(:reservation).permit(:guests, :time, :restaurant_id)
   end
 
   # def load_product

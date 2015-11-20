@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>Seat Yourself</header>
 <body>
     <% if flash[:notice] %>
       <p id="notice"><%= flash[:notice] %></p>
@@ -16,7 +17,7 @@
     <% if current_user %>
     <p>You're logged in as <%= link_to current_user.name, current_user %></p>
     <% end %>
-    <%= link_to "Restaurants", restaurants_path%>
+    <%= link_to "Restaurants", restaurants_path%><br>
 
 <%= yield %>
 
