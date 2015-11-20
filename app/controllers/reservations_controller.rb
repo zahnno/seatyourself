@@ -17,12 +17,12 @@ class ReservationsController < ApplicationController
 
   def create
     if 50 <= @restaurant_capacity
-      @reservation = Reservation.new(
-      guests: params[:reservation][:guests],
-      time: params[:reservation][:time],
-      restaurant_id: @restaurant_id,
-      user_id: current_user.id
-     ) 
+      @reservation = Reservation.new(reservations_params)
+     #  guests: params[:reservation][:guests],
+     #  time: params[:reservation][:time],
+     #  restaurant_id: @restaurant_id,
+     #  user_id: current_user.id
+     # ) 
     else 
       render "restaurant/show"
     end
@@ -42,7 +42,7 @@ class ReservationsController < ApplicationController
 
   private 
   def reservation_params
-  	params.require(:reservation).permit(:guests, :time, :restaurant_id)
+  	params.require(:reservation).permit(:guests, :time, :restaurant_id, :user_id)
   end
 
   # def load_product

@@ -1,16 +1,25 @@
 body {
-	background-color: beige;
+	/*background-image: url(http://untappedcities.com/wp-content/uploads/2013/07/Empire-Diner-New-York-Untapped-Cities.jpg);
+background-repeat: no-repeat;*/
+/*background-position: center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;*/
+background-color: black;
+   color: white;
 }
 
 header {
-	color: lightblue; 
+	color: white; 
 	font-family: "Great Vibes", cursive; 
-	font-size: 150px; 
+	font-size: 100px; 
 	line-height: 160px; 
 	font-weight: normal; 
 	margin-bottom: 0px; 
 	margin-top: 10px; 
-	text-align: center; 
+	text-align: right; 
 	text-shadow: 3px 4px black, 6px 6px black;
-    background-color: white;
+    background-color: clear;
+    border-bottom: solid white;    
 }
