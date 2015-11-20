@@ -14,13 +14,16 @@ class ReservationsController < ApplicationController
   end
 
   def create
+      @reservation = Reservation.new(reservation_params)
+      # guests: params[:reservation][:guests],
+      # time: params[:reservation][:time],
+      # restaurant_id: @restaurant.id,
+      # user_id: current_user.id,
+      
 
-      @reservation = Reservation.new(
-      guests: params[:reservation][:guests],
-      time: params[:reservation][:time],
-      restaurant_id: @restaurant.id,
-      user_id: current_user.id,
-      )     
+      @reservation.restaurant = @restaurant
+      @reservation.user = current_user
+
 
     if @reservation.save
     	redirect_to user_path(current_user), notice: 'Reservation Set!'
@@ -37,7 +40,7 @@ class ReservationsController < ApplicationController
 
   private 
   def reservation_params
-  	params.require(:reservation).permit(:guests, :time, :restaurant_id)
+  	params.require(:reservation).permit(:guests, :time)
   end
 
   def load_restaurant

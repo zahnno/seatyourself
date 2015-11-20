@@ -2,8 +2,10 @@
 <h2><%= @user.email %></h2>
 <%= "My Reservations" %><br/>
 <% @reservations.each do |reservation| %>
-<p> <%= reservation.time.strftime('%A, %e %b %I %p') %>
-Guests #:<%= reservation.guests%></p><br>
+<p>
+<%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant) %>
+<%= reservation.time.strftime('%I:00 %p') %>
+Guests #<%= reservation.guests%></p><br>
 <% end %>
 
 <a href="/restaurants/new">Create New Restaurant</a>
