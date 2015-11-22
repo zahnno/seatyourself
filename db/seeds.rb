@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Taco = Restaurant.create(name: "Taco Bell", address: "301 kendalwood", price: "123", genre: "Mexican")
+
+Patrick = User.create(name: "Patrick", email: "zaps@gmail.com", password: "Pat")

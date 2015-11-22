@@ -3,6 +3,7 @@
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.genre %></p>
 <p>$<%= @restaurant.price %></p>
+<p> Capacity: <%=@restaurant.capacity %> for each hour</p>
 
 <% if current_user %>
 <%= link_to "Book a Reservation!", new_restaurant_reservation_path(@restaurant) %>

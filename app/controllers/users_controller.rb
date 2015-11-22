@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :load_restaurant
+
 	def new
 		@user = User.new
 	end
@@ -21,5 +23,9 @@ class UsersController < ApplicationController
     private
     def user_params
   	  params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    end
+
+    def load_restaurant
+      @restaurant = Restaurant.where(user_id: params[:id])
     end
 end
