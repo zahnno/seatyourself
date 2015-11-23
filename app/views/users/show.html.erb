@@ -1,18 +1,22 @@
 <h1><%= @user.name %></h1>
 <h2><%= @user.email %></h2>
 <h3> Your Restaurants </h3>
-<% @restaurant.each do |restaurant| %>
-<p><%= restaurant.name %><br> <img src="<%= restaurant.photo %>" style= "width: 200px; height: 200px;"> <br> Capacity: <%= restaurant.capacity %> <br> <%= restaurant.genre %> <br> Price: <%= restaurant.price %> </p>
-<%end %> <br>
+<% @restaurants.each do |restaurant| %>
+	<p> <%= link_to " #{restaurant.name}", restaurant_path(restaurant) %>
+
+	<br> <img src="<%= restaurant.photo %>" style= "width: 200px; height: 200px;"> <br> Capacity: <%= restaurant.capacity %> <br> <%= restaurant.genre %> <br> Price: <%= restaurant.price %> </p>
+<%end %> 
+<br>
+
 <%= "My Reservations" %><br/>
 
 <% @reservations.each do |reservation| %>
-<p>
-<%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant) %>
-<%= reservation.time.strftime('%A, %d %b %Y %l:%M %p') %>
-Guests #<%= reservation.guests%>
 
-<%= link_to "Delete", restaurant_reservation_path(@restaurant, reservation), method: :delete %><br></p>
+	<p>
+	<%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant) %>
+	<%= reservation.time.strftime('%A, %d %b %Y %l %p') %>
+	Guests # <%= reservation.guests %>
+	<%= link_to "Delete", restaurant_reservation_path(reservation.restaurant, reservation), method: :delete %><br></p>
 <% end %>
 
 <a href="/restaurants/new">Create New Restaurant</a>

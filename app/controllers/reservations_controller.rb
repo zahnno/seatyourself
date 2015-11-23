@@ -15,9 +15,8 @@ class ReservationsController < ApplicationController
 
   def create
       @reservation = Reservation.new(reservation_params)
-      @reservation.restaurant = @restaurant.first
-      @reservation.user = current_user    
-
+      @reservation.restaurant = @restaurant
+      @reservation.user = current_user 
     if @reservation.save
     	redirect_to user_path(current_user), notice: 'Reservation Set!'
     else
@@ -37,6 +36,6 @@ class ReservationsController < ApplicationController
   end
 
   def load_restaurant
-    @restaurant = Restaurant.where(params[:restaurant_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 end
