@@ -1,12 +1,16 @@
-<img src="<%= @restaurant.photo %>" style= "width: 200px; height:200px;">
+<div><img src="<%= @restaurant.photo %>" style= "width: 200px; height:200px;"></div>
 <h1><%= @restaurant.name %></h1>
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.genre %></p>
 <p>$<%= @restaurant.price %></p>
 <p> Capacity: <%=@restaurant.capacity %> for each hour</p>
+<% if current_user.id = @restaurant.user_id %>
+<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %> <br>
+<% end %>
 
 <% if current_user %>
 <%= link_to "Book a Reservation!", new_restaurant_reservation_path(@restaurant) %>
 <% else %>
+
   <p>Please<%= link_to " Log in ", new_session_path%>to Book a Reservation!</p>
   <% end %>

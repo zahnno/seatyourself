@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Taco = Restaurant.create(name: "Taco Bell", address: "301 kendalwood", price: "123", genre: "Mexican")
+# Taco = Restaurant.create(name: "Taco Bell", address: "301 kendalwood", price: "123", genre: "Mexican", user_id: 1, :id 1)
 
 Patrick = User.create(name: "Patrick", email: "zaps@gmail.com", password: "Pat")

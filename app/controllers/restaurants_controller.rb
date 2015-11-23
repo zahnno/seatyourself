@@ -1,12 +1,12 @@
 class RestaurantsController < ApplicationController
-	
+	before_filter :ensure_logged_in, only: [:create, :destroy]
   def index
   	@restaurants = Restaurant.all
   end
 
   def show
   	@restaurant = Restaurant.find(params[:id])
-
+    
   	if current_user
   		@reservation = Reservation.new
   	end
@@ -21,7 +21,8 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-  	@restaurant = Restaurant.new(restaurant_params)
+  	
+    @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user_id = current_user.id
 
   	if @restaurant.save

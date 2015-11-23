@@ -2,7 +2,7 @@
 <h2><%= @user.email %></h2>
 <h3> Your Restaurants </h3>
 <% @restaurant.each do |restaurant| %>
-<p><%= restaurant.name %><br> <%= restaurant.photo %> <br> Capacity: <%= restaurant.capacity %> <br> <%= restaurant.genre %> <br> Price: <%= restaurant.price %> </p>
+<p><%= restaurant.name %><br> <img src="<%= restaurant.photo %>" style= "width: 200px; height: 200px;"> <br> Capacity: <%= restaurant.capacity %> <br> <%= restaurant.genre %> <br> Price: <%= restaurant.price %> </p>
 <%end %> <br>
 <%= "My Reservations" %><br/>
 
@@ -10,7 +10,9 @@
 <p>
 <%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant) %>
 <%= reservation.time.strftime('%A, %d %b %Y %l:%M %p') %>
-Guests #<%= reservation.guests%></p><br>
+Guests #<%= reservation.guests%>
+
+<%= link_to "Delete", restaurant_reservation_path(@restaurant, reservation), method: :delete %><br></p>
 <% end %>
 
 <a href="/restaurants/new">Create New Restaurant</a>

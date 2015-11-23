@@ -1,10 +1,11 @@
-
-<img src="<%= @restaurant.photo %>" style= "width: 200px; height:200px;"> 
-<h1><%= @restaurant.name %></h1>
-<p>Address: <%= @restaurant.address %></p>
-<p>Genre: <%= @restaurant.genre %></p>
-<p>Price: <%= @restaurant.price %></p>
-<p>Capacity: <%= @restaurant.capacity %></p>
+<% @restaurant.each do |restaurant|%>
+<img src="<%= restaurant.photo %>" style= "width: 200px; height:200px;"> 
+<h1><%= restaurant.name %></h1>
+<p>Address: <%= restaurant.address %></p>
+<p>Genre: <%= restaurant.genre %></p>
+<p>Price: <%= restaurant.price %></p>
+<p>Capacity: <%= restaurant.capacity %></p>
+<% end %>
 <h1>New Reservation</h1>
 
 <%= render "form" %>
