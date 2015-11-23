@@ -6,7 +6,29 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<header><img src="http://beccatron.com/wp-content/uploads/2012/06/chair-logo.png" style="width:50px; height: 50px">Seat Yourself</header>
+
+<div class = "topdiv">
+
+<img src="http://beccatron.com/wp-content/uploads/2012/06/chair-logo.png" style="width:50px; height: 50px; float:left;">
+
+<header>Seat Yourself</header>
+
+
+      <% if current_user %>
+        Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      <% else %>
+
+      <div class = "signup">
+        <%= link_to "Sign up", new_user_path %>
+      </div>
+      <div class = "login">
+        <%= link_to "Log in", new_session_path %> 
+      </div>
+      <% end %>
+<div class = "rest">
+<%= link_to "Restaurants", restaurants_path%><br>
+</div>
+</div>
 <body>
     <% if flash[:notice] %>
       <p id="notice"><%= flash[:notice] %></p>
@@ -17,11 +39,11 @@
     <% if current_user %>
     <p>You're logged in as <%= link_to current_user.name, current_user %></p>
     <% end %>
-    <%= link_to "Restaurants", restaurants_path%><br>
+    
 
 <%= yield %>
 
-		<p class="userinfo">
+		<p class=>
       <% if current_user %>
         Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
       <% else %>

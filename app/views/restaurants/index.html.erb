@@ -4,10 +4,10 @@
 <tr>
 <th><img src= "<%= a.photo %>" style= "width: 150px; height: 150px;"></th>
 <th><%=link_to "#{a.name}" , restaurant_path(a) %></th>
-<th><%= a.address %><th>
-<th><%= a.genre %><th>
-<th><%= a.price %>$</th>
-<th><%= a.capacity %></th>
+<th>Address:   <%= a.address %><th>
+<th>Genre:   <%= a.genre %><th>
+<th>Price:   <%= a.price %>$</th>
+<th>Capacity:   <%= a.capacity %></th>
 </tr>
 </table> 
 <%end%>
