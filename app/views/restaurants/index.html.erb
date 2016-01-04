@@ -1,13 +1,21 @@
-<p>
+<div class="top">
+<p style="margin:0;">
+Make a free reservation<br>
+Treat your taste buds and explore your cities restaurants<br></p>
+
+</div>
 <% @restaurants.each do |a| %>
-<table>
-<tr>
-<th><img src= "<%= a.photo %>" style= "width: 150px; height: 150px;"></th>
-<th><%=link_to "#{a.name}" , restaurant_path(a) %></th>
-<th>Address:   <%= a.address %><th>
-<th>Genre:   <%= a.genre %><th>
-<th>Price:   <%= a.price %>$</th>
-<th>Capacity:   <%= a.capacity %></th>
-</tr>
-</table> 
+<div class= "restaurant">
+<img src= "<%= a.photo %>" class="restaurant-img">
+<div class="link">
+<%=link_to "#{a.name}" , restaurant_path(a) %>
+</div>
+<div class="details">
+Address:   <%= a.address %><br>
+Genre:   <%= a.genre %><br>
+Price:   <%= a.price %>$<br>
+Capacity:   <%= a.capacity %>
+</div>
+</div>
+
 <%end%>

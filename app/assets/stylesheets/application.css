@@ -45,6 +45,10 @@ header {
 	font-family: arial;
 	font-size: 15px;
 }
+body {
+	margin-left: 0;
+	margin-right: 0;
+}
 
 .login a {
 	width: 50px;
@@ -66,4 +70,42 @@ header {
 	text-decoration: none;
 	color: black;
 	font-family: arial;
+}
+
+.restaurant {
+	width: 300px;
+	border: 3px solid lightgrey;
+	display: inline-block;
+	margin-top: 50px;
+}
+
+.restaurant-img {
+	width:300px;
+	height: 200px;
+}
+.link{
+	text-align: center;
+}
+
+.details {
+	margin-top: 10px;
+}
+
+.top {
+	width: 100%;
+	background: url("restaurantwide.jpg");
+	background-size: cover;
+	height: 450px;
+	font-size: 40px;
+	color:white;
+	font-family: "Great Vibes", cursive; 
+	text-shadow: 3px 3px 2px black;
+	vertical-align: bottom;
+	position: relative;
+}
+
+.top p{
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 10px;
 }
