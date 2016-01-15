@@ -9,3 +9,5 @@
 # Taco = Restaurant.create(name: "Taco Bell", address: "301 kendalwood", price: "123", genre: "Mexican", user_id: 1, :id 1)
 
 Patrick = User.create(name: "Patrick", email: "zaps@gmail.com", password: "Pat")
+
+italian = Restaurant.create(name:"Donatello", address:"37 Elm St, Toronto, ON M5G 1H1", price: "20$-40$", genre: "Italian", photo: "http://www.blogto.com/listings/restaurants/upload/2008/10/20081013-donatello.jpg", capacity: 40)
