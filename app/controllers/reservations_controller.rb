@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
 
   private 
   def reservation_params
-  	params.require(:reservation).permit(:guests, :time)
+  	params.require(:reservation).permit(:guests, :restime)
   end
 
   def load_restaurant

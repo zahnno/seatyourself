@@ -14,7 +14,7 @@
 
 	<p>
 	<%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant) %>
-	<%= reservation.time.strftime('%A, %d %b %Y %l %p') %>
+	<%= reservation.restime.strftime('%A, %d %b %Y %l %p') %>
 	Guests # <%= reservation.guests %>
 	<%= link_to "Delete", restaurant_reservation_path(reservation.restaurant, reservation), method: :delete %><br></p>
 <% end %>
