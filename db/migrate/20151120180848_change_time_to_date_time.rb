@@ -1,5 +1,14 @@
 class ChangeTimeToDateTime < ActiveRecord::Migration
   def change
-  	change_column :reservations, :time , :datetime
+  end
+
+    def up
+    remove_column :reservations, :restime
+    add_column :reservations, :restime, :datetime
+  end
+
+  def down
+    remove_column :reservations, :restime
+    add_column :reservations, :restime, :datetime
   end
 end
